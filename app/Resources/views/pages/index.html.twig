@@ -1,0 +1,39 @@
+
+{{ include('pages/inc/header.html.twig') }}
+<div class="container-fluid">
+    <a href="{{ absolute_url(asset('')) }}app_dev.php/create" class="btn btn-primary " >Creer un article</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts  %}
+        <tr class="table">
+            <td>{{ post.id }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.description }}</td>
+            <td>{{ post.category }}</td>
+            <td>
+                <a href="{{ absolute_url(asset('')) }}app_dev.php/view/{{ post.id }}" class="btn btn-primary " >Voir</a>
+                <a href="{{ absolute_url(asset('')) }}app_dev.php/edit/{{ post.id }}" class="btn btn-success" >Modifier</a>
+                <a href="{{ absolute_url(asset('')) }}app_dev.php/delete/{{ post.id }}" class="btn btn-danger" >Supprimer</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>No records Found!</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(posts) }}
+    </div>
+</div>
+

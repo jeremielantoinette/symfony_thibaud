@@ -1,0 +1,15 @@
+{{ include('pages/inc/header.html.twig') }}
+<div class="container">
+
+    <div class="list-group">
+        <a href=""></a>
+        <p class="list-group-item">{{ post.title }}</p>
+        <p class="list-group-item">{{ post.description }}</p>
+        <p class="list-group-item">{{ post.category }}</p>
+        <p class="list-group-item"><a href="{{ absolute_url(asset('')) }}app_dev.php/post" class="btn btn-primary">Back</a></p>
+
+
+    </div>
+
+</div>
+{{ include('pages/inc/footer.html.twig') }}
